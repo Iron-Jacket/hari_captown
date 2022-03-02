@@ -5,7 +5,7 @@
     </head>
     <div class="container">
 
-        <form action="{{url_for('predict')}}" method="post"class="form">
+        <form action="{{url_for('predict')}}" method="post"class="form" id="form">
             <h1 class="text-center">House Price</h1>
             
             <!-- Progress bar -->
@@ -24,7 +24,7 @@
             <div class="form-step form-active">
                 <div class="input-group">
                     <label for="bedroom">Type of Proprety</label>
-                    <select id="cars" name="Type of Proprety">
+                    <select id="cars" name="Type of Proprety" for="form">
                         <option value="Apartement/Flat">Apartement/Flat</option>
                         <option value="House">House</option>
                         <option value="Townhouse">Townhouse</option>
@@ -62,9 +62,7 @@
            
             
             <!-- Steps 2 -->
-            
 
-            <!-- Steps 3 -->
             <div class="form-step">
                 <div class="input-group">
                     <label for="bedrooms">Bedrooms</label>
@@ -91,7 +89,7 @@
 
 
 
-            <!-- Steps 5 -->
+            <!-- Steps 3 -->
             <div class="form-step">
                 <div class="input-group">
                     <label for="Parking Number">Parking Number</label>
@@ -115,7 +113,7 @@
                 </div>
             </div>
 
-            <!-- Steps 5 -->
+            <!-- Steps 4 -->
             <div class="form-step">
                 <div class="input-group">
                     <label for="Garden">Dining Room</label>
@@ -139,7 +137,7 @@
                 </div>
             </div>
 
-            <!-- Steps 6 -->
+            <!-- Steps 5 - OUTPUT -->
             <div class="form-step">
                 <div class="input-group">
                     <label for="price">Price</label>
