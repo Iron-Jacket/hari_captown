@@ -1,0 +1,166 @@
+:root{
+    --primary-color : #0d77e8;
+    --secondary-color : #a8d1fd;
+}
+
+*,
+*::before,
+*::after{
+    box-sizing: border-box;
+}
+
+body{
+    display: grid;
+    margin: 0;
+    place-items: center;
+
+    background: radial-gradient(58.75% 236.75% at 78.55% 90.39%, rgba(44, 255, 10, 0.2) 0%, rgba(57, 251, 65, 0.2) 83.85%), radial-gradient(75.65% 76.39% at 28.37% 24.26%, rgba(255, 186, 9, 0.2) 0%, rgba(17, 26, 107, 0.2) 100%), rgba(255, 253, 253, 0.4);
+    box-shadow: 0px 9px 15px rgba(0, 0, 0, 0.25);
+   
+}
+
+/*
+    Progress
+*/
+
+.progress-bar{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    counter-reset: step;
+    margin-bottom: 36px;
+}
+
+.progress-bar::before, .progress{
+    content:"";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 4px;
+    width: 100%;
+    background-color: #dcdcdc;
+}
+
+.progress{
+    background-color: var(--primary-color);
+    width: 0px;
+}
+
+.progress-step{
+    width: 35px;
+    height: 35px;
+    background-color: #dcdcdc;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 3000;
+}
+.progress-step-active{
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.progress-step::before{
+    counter-increment: step;
+    content:counter(step);
+}
+.progress-step::after{
+    content: attr(data-title);
+    position: absolute;
+    top : calc(100% - -0.08rem);
+    color: rgba(0, 0, 0, 0.75);
+}
+
+/*
+    FORM
+*/
+
+form{
+    width: 420px;
+    margin : 0 auto;
+    border: solid 1px #aeaeae;
+    border-radius: 0.35rem;
+    padding: 1.5rem;
+    background-color: rgb(255, 255, 255);
+}
+
+/*
+    INPUT
+*/
+
+label{
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+input{
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    border: solid 1px #ccc;
+    border-radius: 0.25rem;
+}
+
+.input-group{
+    margin: 2rem 0;
+}
+
+.input-linked{
+    display: inline-block;
+}
+
+.input-linked input{
+    display: block;
+}
+
+.btn{
+    display: block;
+    padding: 0.7rem;
+    text-decoration: none;
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+    border-radius: .25rem;
+    cursor: pointer;
+}
+
+.btn:hover{
+    box-shadow: 0 0 0 3px #6f6f6f;
+    transition: .2s;
+}
+
+.btn-previous{
+    background-color: var(--secondary-color);
+    color: rgb(73, 73, 75);
+}
+
+.text-center{
+    text-align: center;
+}
+
+.w-50{
+    width: 50%;
+}
+
+.ml-auto{
+    margin-left: auto;
+}
+
+.mr-auto{
+    margin-right: auto;
+}
+
+.button-group{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap:1.5rem;
+}
+
+.form-step{
+    display: none;
+}
+
+.form-active{
+    display: block;
+}

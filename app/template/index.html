@@ -1,0 +1,157 @@
+<html>
+    <head>
+        <title>Cap Town</title>
+        <link rel="stylesheet" href="../static/styles/style.css">
+    </head>
+    <div class="container">
+
+        <form action="{{url_for('predict')}}" method="post"class="form">
+            <h1 class="text-center">House Price</h1>
+            
+            <!-- Progress bar -->
+                <div class="progress-bar">
+                    <div class="progress" id="progress"></div>
+
+                    <div class="progress-step progress-step-active" data-title="Propriety"></div>
+                    <div class="progress-step" data-title="Room"></div>
+                    <div class="progress-step" data-title="Parking"></div>
+                    <div class="progress-step" data-title="Kitchen"></div>
+                    <div class="progress-step" data-title="Price"></div>
+
+                </div>
+
+            <!-- Steps 1 -->
+            <div class="form-step form-active">
+                <div class="input-group">
+                    <label for="bedroom">Type of Proprety</label>
+                    <select id="cars" name="Type of Proprety">
+                        <option value="Apartement/Flat">Apartement/Flat</option>
+                        <option value="House">House</option>
+                        <option value="Townhouse">Townhouse</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <!-- Debug : Select from json source only allowed (157) -->
+                    <label for="Street Address">Street Address</label>
+                    <input type="text" name="Address" id="Address">
+                </div>
+
+                <div class="input-group">
+                    <!-- Debug : send m² unit in form ? -->
+                    <label for="rfsize">Erf Size</label>
+                    <input type="number" name="rfsize" min="30" max="14000" id="rfsize">
+                    
+                    <!-- 
+                        <input type="range"min="0" max="10000" step="50" name="score" oninput="updateTextInput(this.value)" onchange="updateTextInput(this.value)" >
+                    -->
+                    </div>
+                <div class="input-group">
+                    <!-- Debug : send m² unit in form ? -->
+                    <label for="Floor Size">Floor Size</label>
+                    <input type="number" name="floorSize" id="floorSize">
+                    <!--
+                        <input type="range"min="0" max="10000" step="50" name="floorSize" oninput="updateTextInput(this.value)" onchange="updateTextInput(this.value)" >
+                    -->
+                    </div>
+
+                <div class="button-group">
+                    <a href="#" style="cursor: auto;"></a>
+                    <a class="btn btn-next" href="#">Next</a>
+                </div>
+            </div>
+           
+            
+            <!-- Steps 2 -->
+            
+
+            <!-- Steps 3 -->
+            <div class="form-step">
+                <div class="input-group">
+                    <label for="bedrooms">Bedrooms</label>
+                    <input type="number" name="bedrooms" id="bedrooms">
+                </div>
+                <div class="input-group">
+                    <label for="bathroom">Bathroom</label>
+                    <input type="number" name="bathroom" id="bathroom">
+                </div>
+                <div class="input-group">
+                    <label for="Pet Allowed">Pet Allowed</label>
+                    <input type="number" name="pet" id="pet" min="0" max="1">
+                </div>
+                <div class="input-group">
+                    <label for="Garage Number">Garage Number</label>
+                    <input type="number" name="garage" id="garage"  min="0" max="13">
+                </div>
+                
+                <div class="button-group">
+                    <a class="btn btn-previous" href="#">Previous</a>
+                    <a class="btn btn-next" href="#">Next</a>
+                </div>
+            </div>
+
+
+
+            <!-- Steps 5 -->
+            <div class="form-step">
+                <div class="input-group">
+                    <label for="Parking Number">Parking Number</label>
+                    <input type="number" name="parking" id="parking" min="0" max="13">
+                </div>
+                <div class="input-group">
+                    <label for="Garden">Garden</label>
+                    <input type="number" name="garden" id="garden" min="0" max="1" placeholder="0 for No, 1 for yes">
+                </div>
+                <div class="input-group">
+                    <label for="Garden">Pool</label>
+                    <input type="number" name="garden" id="garden" min="0" max="1" placeholder="0 for No, 1 for yes">
+                </div>
+                <div class="input-group">
+                    <label for="Loundge">Loundge</label>
+                    <input type="number" name="loundge" id="loundge" min="0" max="1" placeholder="0 for No, 1 for yes">
+                </div>
+                <div class="button-group">
+                    <a class="btn btn-previous" href="#">Previous</a>
+                    <a class="btn btn-next" href="#">Next</a>
+                </div>
+            </div>
+
+            <!-- Steps 5 -->
+            <div class="form-step">
+                <div class="input-group">
+                    <label for="Garden">Dining Room</label>
+                    <input type="number" name="garden" id="garden" min="0" max="1" placeholder="0 for No, 1 for yes">
+                </div>
+                <div class="input-group">
+                    <label for="Security">Security</label>
+                    <input type="number" name="security" id="security" min="0" max="1" placeholder="0 for No, 1 for yes">
+                </div>
+                <div class="input-group">
+                    <label for="Kitchen">Kitchen</label>
+                    <input type="number" name="kitchen" id="kitchen" min="0" max="1" placeholder="0 for No, 1 for yes">
+                </div>
+                <!-- SUBMIT BUTTON -->
+                <div class="button-group">
+                    <a class="btn btn-previous" href="#">Previous</a>
+                    <!--
+                        <a class="btn btn-next btn-submitS"href="#">Submit</a>
+                    -->
+                    <button type="submit" class="btn btn-next btn-submitS">Predict</button>
+                </div>
+            </div>
+
+            <!-- Steps 6 -->
+            <div class="form-step">
+                <div class="input-group">
+                    <label for="price">Price</label>
+                    <input type="number" name="price" id="price" value="{{prediction_text}}" placeholder="{{prediction_text}}">
+                </div>
+                <div class="button-group">
+                    <a class="btn btn-previous"href="#">Previous</a>
+                </div>
+            </div>
+
+        </form>
+    </div>
+    <script src="../static/script/script.js">
+    </script>
+</html>
